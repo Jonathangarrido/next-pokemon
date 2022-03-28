@@ -12,7 +12,7 @@ interface Props {
 }
 
 export const PokemonInfo: FC<Props> = ({ pokemon }) => {
-  const { front_default, back_default, front_shiny, back_shiny } = pokemon.sprites
+  const { front_default, back_default, front_shiny, back_shiny, other } = pokemon.sprites
   const sprites = [front_default, back_default, front_shiny, back_shiny]
 
   const [isInFavorites, setIsInFavorites] = useState(localfavorites.existInFavorites(pokemon.id))
@@ -42,7 +42,7 @@ export const PokemonInfo: FC<Props> = ({ pokemon }) => {
           <Card hoverable css={{ padding: '30px' }}>
             <Card.Body>
               <Card.Image
-                src={pokemon.sprites.other?.dream_world.front_default ?? '/no-image.png'}
+                src={other?.dream_world.front_default ?? '/no-image.png'}
                 alt={pokemon.name}
                 width="100%"
                 height={200}
